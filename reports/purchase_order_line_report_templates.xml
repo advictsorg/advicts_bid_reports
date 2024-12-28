@@ -1,0 +1,457 @@
+<odoo>
+    <!-- Template for Bid Comparison Report -->
+    <template id="report_bid_comparison_by_vendors_document">
+        <t t-call="web.html_container"/>
+
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <h2 class="mt-4 text-center">Bid Comparison Report by Vendors</h2>
+
+                <t t-foreach="data" t-as="vendor">
+                    <h3>Vendor:
+                        <span t-esc="vendor['name']"/>
+                    </h3>
+
+                    <table class="table table-sm mt-4">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>Product</strong>
+                                </th>
+                                <th>
+                                    <strong>OTD</strong>
+                                </th>
+                                <th>
+                                    <strong>Reference</strong>
+                                </th>
+                                <th>
+                                    <strong>Status</strong>
+                                </th>
+                                <th>
+                                    <strong>Description</strong>
+                                </th>
+                                <th>
+                                    <strong>Expected Arrival</strong>
+                                </th>
+                                <th>
+                                    <strong>Quantity</strong>
+                                </th>
+                                <th>
+                                    <strong>Unit of Measure</strong>
+                                </th>
+                                <th>
+                                    <strong>Unit Price</strong>
+                                </th>
+                                <th>
+                                    <strong>Total</strong>
+                                </th>
+                                <th>
+                                    <strong>Currency</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="vendor['purchase_order_lines']" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="line['product_name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['otd']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['reference']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['status']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['description']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['expected_arrival']"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-esc="line['product_qty']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['unit_of_measure']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="line['price_unit']"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-esc="line['total']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['currency']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </t>
+
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template for Bid Comparison Report by Products -->
+    <template id="report_bid_comparison_by_products_document">
+        <t t-call="web.html_container"/>
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <h2 class="mt-4 text-center">Bid Comparison Report by Products</h2>
+
+                <t t-foreach="data" t-as="product">
+                    <h3>Product:
+                        <span t-esc="product['name']"/>
+                    </h3>
+
+                    <table class="table table-sm mt-4">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>vendor</strong>
+                                </th>
+                                <th>
+                                    <strong>OTD</strong>
+                                </th>
+                                <th>
+                                    <strong>Reference</strong>
+                                </th>
+                                <th>
+                                    <strong>Status</strong>
+                                </th>
+                                <th>
+                                    <strong>Description</strong>
+                                </th>
+                                <th>
+                                    <strong>Expected Arrival</strong>
+                                </th>
+                                <th>
+                                    <strong>Quantity</strong>
+                                </th>
+                                <th>
+                                    <strong>Unit of Measure</strong>
+                                </th>
+                                <th>
+                                    <strong>Unit Price</strong>
+                                </th>
+                                <th>
+                                    <strong>Total</strong>
+                                </th>
+                                <th>
+                                    <strong>Currency</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="product['purchase_order_lines']" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="line['vendor_name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['otd']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['reference']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['status']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['description']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['expected_arrival']"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-esc="line['product_qty']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['unit_of_measure']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="line['price_unit']"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-esc="line['total']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['currency']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+
+                </t>
+
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_bid_comparison_gh">
+        <t t-call="web.html_container"/>
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <h2 class="mt-4 text-center">Comparative Bid Analysis</h2>
+
+                <table class="table table-bordered table-sm mt-4">
+                    <thead>
+                        <tr class="table-active">
+                            <th rowspan="2" class="text-center align-middle">#</th>
+                            <th rowspan="2" class="text-center align-middle">Product</th>
+                            <t t-foreach="vendors" t-as="vendor">
+                                <th colspan="3" class="text-center">
+                                    <t t-esc="vendor"/>
+                                </th>
+                            </t>
+                        </tr>
+                        <tr class="table-active">
+                            <t t-foreach="vendors" t-as="vendor">
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Unit Price</th>
+                                <th class="text-center">Total Price</th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="index" t-value="0"/>
+                        <t t-foreach="products" t-as="product">
+                            <t t-set="index" t-value="index+1"/>
+                            <tr>
+                                <td>
+                                    <t t-esc="index"/>
+                                </td>
+                                <td>
+                                    <t t-esc="product"/>
+                                </td>
+                                <t t-foreach="vendors" t-as="vendor">
+                                    <t t-set="vendor_product_info"
+                                       t-value="vendor_product_prices.get(vendor, {}).get(product, {})"/>
+                                    <td class="text-right">
+                                        <t t-if="vendor_product_info">
+                                            <t t-esc="'{:,.2f}'.format(vendor_product_info['product_qty'])"/>
+                                        </t>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-if="vendor_product_info">
+                                            <t t-esc="'{:,.2f}'.format(vendor_product_info['unit_price'])"/>
+                                            <t t-if="vendor_product_info['currency']">
+                                                <t t-esc="vendor_product_info['currency']"/>
+                                            </t>
+                                        </t>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-if="vendor_product_info">
+                                            <t t-esc="'{:,.2f}'.format(vendor_product_info['total_price'])"/>
+                                            <t t-if="vendor_product_info['currency']">
+                                                <t t-esc="vendor_product_info['currency']"/>
+                                            </t>
+                                        </t>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+
+                        <!-- Total Row -->
+                        <tr class="table-active">
+                            <td colspan="2" class="font-weight-bold text-center">Total</td>
+                            <t t-foreach="vendors" t-as="vendor">
+                                <td></td>
+                                <td></td>
+                                <td class="text-right font-weight-bold bg-light">
+                                    <t t-set="vendor_total"
+                                       t-value="sum(vendor_product_prices.get(vendor, {}).get(product, {}).get('total_price', 0) for product in products)"/>
+                                    <t t-esc="'{:,.2f}'.format(vendor_total)"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mb-4">
+                    <h4>Reason for Selection:</h4>
+                    <p>
+                        <t t-esc="reason"/>
+                    </p>
+                    <h4>Signatures:</h4>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5>Procurement:</h5>
+                            <img t-if="procurement_signature"
+                                 t-att-src="'data:image/png;base64,' + procurement_signature"
+                                 alt="Procurement Signature"
+                                 class="img-fluid"/>
+                        </div>
+                        <div class="col-4">
+                            <h5>Supply Chain Manager:</h5>
+                            <img t-if="supply_signature"
+                                 t-att-src="'data:image/png;base64,' + supply_signature"
+                                 alt="Supply Chain Manager Signature"
+                                 class="img-fluid"/>
+                        </div>
+                        <div class="col-4">
+                            <h5>Project Manager:</h5>
+                            <img t-if="project_manager_signature"
+                                 t-att-src="'data:image/png;base64,' + project_manager_signature"
+                                 alt="Project Manager Signature"
+                                 class="img-fluid"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+    <!-- Optional: Additional Details Section -->
+    <!--            <div class="mt-4">-->
+    <!--                <h3>Detailed Vendor Information</h3>-->
+    <!--                <table class="table table-sm">-->
+    <!--                    <thead>-->
+    <!--                        <tr>-->
+    <!--                            <th>Product</th>-->
+    <!--                            <th>Vendor</th>-->
+    <!--                            <th>Quantity</th>-->
+    <!--                            <th>Unit of Measure</th>-->
+    <!--                            <th>On-Time Delivery</th>-->
+    <!--                            <th>Reference</th>-->
+    <!--                            <th>Status</th>-->
+    <!--                            <th>Expected Arrival</th>-->
+    <!--                        </tr>-->
+    <!--                    </thead>-->
+    <!--                    <tbody>-->
+    <!--                        <t t-foreach="products" t-as="product">-->
+    <!--                            <t t-foreach="vendors" t-as="vendor">-->
+    <!--                                <t t-set="vendor_product_info" t-value="vendor_product_prices.get(vendor, {}).get(product, {})"/>-->
+    <!--                                <t t-if="vendor_product_info">-->
+    <!--                                    <tr>-->
+    <!--                                        <td><t t-esc="product"/></td>-->
+    <!--                                        <td><t t-esc="vendor"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['product_qty']"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['unit_of_measure']"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['otd']"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['reference']"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['status']"/></td>-->
+    <!--                                        <td><t t-esc="vendor_product_info['expected_arrival']"/></td>-->
+    <!--                                    </tr>-->
+    <!--                                </t>-->
+    <!--                            </t>-->
+    <!--                        </t>-->
+    <!--                    </tbody>-->
+    <!--                </table>-->
+    <!--            </div>-->
+
+    <record id="report_paperformat_a4" model="report.paperformat">
+        <field name="name">A4 advicts</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">25</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+        <field name="report_ids">90</field>
+    </record>
+
+    <!-- Report by Vendors -->
+    <record id="report_bid_comparison_by_vendors" model="ir.actions.report">
+        <field name="name">Bid Comparison Reports - by Vendors</field>
+        <field name="model">purchase.order.line</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">advicts_bid_reports.report_bid_comparison_by_vendors_document</field>
+        <field name="report_file">advicts_bid_reports.report_bid_comparison_by_vendors_document</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="report_paperformat_a4"/>
+    </record>
+
+    <!-- Report by Products -->
+    <record id="report_bid_comparison_by_products" model="ir.actions.report">
+        <field name="name">Bid Comparison Reports - by Products</field>
+        <field name="model">purchase.order.line</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">advicts_bid_reports.report_bid_comparison_by_products_document</field>
+        <field name="report_file">advicts_bid_reports.report_bid_comparison_by_products_document</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="report_paperformat_a4"/>
+    </record>
+
+    <!-- Report by Products -->
+    <record id="report_bid_comparison" model="ir.actions.report">
+        <field name="name">Bid Comparison Reports</field>
+        <field name="model">purchase.order.line</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">advicts_bid_reports.report_bid_comparison_gh</field>
+        <field name="report_file">advicts_bid_reports.report_bid_comparison_gh</field>
+        <field name="binding_type">report</field>
+        <!--        <field name="paperformat_id" ref="report_paperformat_a4"/>-->
+    </record>
+
+    <record id="action_print_bid_comparison_gh" model="ir.actions.server">
+        <field name="name">Comparative Bid Analysis</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_print_bid_comparison_gh()
+        </field>
+    </record>
+    <!-- Server Action for Bid Comparison by Vendors -->
+    <record id="action_print_bid_comparison_by_vendors" model="ir.actions.server">
+        <field name="name">Print Bid Comparison by Vendors</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_print_bid_comparison_by_vendors()
+        </field>
+    </record>
+
+    <!-- Server Action for Bid Comparison by Products -->
+    <record id="action_print_bid_comparison_by_products" model="ir.actions.server">
+        <field name="name">Print Bid Comparison by Products</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_print_bid_comparison_by_products()
+        </field>
+    </record>
+
+
+    <!-- Add these server actions to the appropriate menu or view -->
+    <record id="purchase_order_line_action_server" model="ir.ui.view">
+        <field name="name">Purchase Order Line Server Action</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="%(action_print_bid_comparison_by_vendors)d" type="action"
+                            string="Print Comparison by Vendors" class="btn-primary"/>
+                    <button name="%(action_print_bid_comparison_by_products)d" type="action"
+                            string="Print Comparison by Products" class="btn-primary"/>
+                </header>
+            </form>
+        </field>
+    </record>
+
+</odoo>

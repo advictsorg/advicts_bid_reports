@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="readonly_with_group.allow_fields_update" model="res.groups">
+            <field name="name">Allow Fields Update</field>
+            <field name="category_id" ref="base.module_category_sales_sales"/>
+        </record> -->
+ 
+    
+    </data>
+</odoo>

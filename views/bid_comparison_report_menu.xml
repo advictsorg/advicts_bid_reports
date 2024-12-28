@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+  
+      <record id="view_bid_sign_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+                <page string="Signatures" name="purchase_selected">
+                    <group>
+                        <field name="select_reason"/>
+                    <field name="procurement_signature" widget="signature"/>
+                    <field name="supplay_signature" widget="signature"/>
+                    <field name="pr_manager_signature" widget="signature"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+   
+    <!-- <menuitem id="menu_bid_comparison_report"
+              name="Bid Comparison Reports"
+              parent="purchase.menu_purchase_root"
+              action="action_report_bid_comparison"/> -->
+
+            
+
+        <!-- Action to Open the List View of Purchase Order Lines -->
+        <record id="action_bid_comparison_po_lines" model="ir.actions.act_window">
+            <field name="name">Purchase Order Lines</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_lead">
+                    Manage and review your purchase order lines.
+                </p>
+            </field>
+        </record>
+
+           <menuitem id="menu_bid_comparison_po_lines" 
+                  name="Purchase Order Lines"
+                  parent="purchase.menu_purchase_root" 
+                  action="action_bid_comparison_po_lines"
+                  sequence="10"/>
+    </data>
+</odoo>
